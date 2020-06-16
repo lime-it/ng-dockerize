@@ -61,8 +61,8 @@ module.exports = {
                 { from:'./projects/ng-dockerize/schematics/collection.json', to:'./ng-dockerize/schematics/collection.json'},
                 { from:'./projects/ng-dockerize/schematics/*/*.json', to:'./ng-dockerize/schematics/[1]/[name].[ext]',
                     transformPath:regexTransformPath(/schematics\/(.+)\/.+\.json$/ig), noErrorOnMissing: true},
-                { from:'./projects/ng-dockerize/schematics/*/files/**/*', to:'./ng-dockerize/schematics/[1]/files/[2]/[name].[ext]',
-                    transformPath:regexTransformPath(/schematics\/(.+)\/files\/(.+)\..*$/ig), noErrorOnMissing: true} 
+                { from:'./projects/ng-dockerize/schematics/*/files/**/*', to:'./ng-dockerize/schematics/[1]/[2]',
+                    transformPath:regexTransformPath(/schematics\/(.+)\/(files\/(.+)\..*)$/ig), noErrorOnMissing: true} 
             ]
         })
     ],

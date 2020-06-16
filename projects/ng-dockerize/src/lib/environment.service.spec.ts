@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { NgDockerizeService } from './ng-dockerize.service';
+import { EnvironmentService } from './environment.service';
 
-describe('NgDockerizeService', () => {
-  let service: NgDockerizeService;
+describe('EnvironmentService', () => {
+  let service: EnvironmentService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(NgDockerizeService);
+    service = TestBed.inject(EnvironmentService);
   });
 
   it('should be created', () => {
