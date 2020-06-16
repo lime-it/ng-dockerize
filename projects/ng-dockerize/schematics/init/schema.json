@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "id": "Init schematics",
+  "title": "Initializes the application project",
+  "type": "object",
+  "properties": {
+    "imageTag": {
+      "description": "The docker hub nginx image tag",
+      "type": "string",
+      "default": "latest"
+    },
+    "project": {
+      "type": "string",
+      "description": "The name of the project.",
+      "$default": {
+        "$source": "projectName"
+      }
+    }
+   },
+  "required": []
+}
