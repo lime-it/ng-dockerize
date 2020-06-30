@@ -1,6 +1,6 @@
 {
   "name": "@lime.it/ng-dockerize",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Utility library with schematics to easily set up an angular app for a container deployment with a dynamic environment variables configuration.",
   "keywords": [
     "ci/cd",
@@ -10,7 +10,7 @@
     "env"
   ],
   "author": "gcanossa @gcanossa",
-  "license": "AGPL-3.0",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/lime-it/ng-dockerize"
