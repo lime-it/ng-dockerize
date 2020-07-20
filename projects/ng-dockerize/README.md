@@ -21,7 +21,7 @@ Otherwise simply add with angular-cli
 
 You will find in your angular workspace two new files:
 * Dockerfile: configured to build an nginx based image with contents from the *./dist/{your_app}* folder
-* nginx.conf: configured to set up an alias for *assets/environment.json* based on the value of the environment value *APP_ENVIRONMENT*
+* nginx.conf.template: configured to set up an alias for *assets/environment.json* based on the value of the environment value *APP_ENVIRONMENT*
 
 Moreover, your app main NgModule will import the *NgDockerizeModule*.
 

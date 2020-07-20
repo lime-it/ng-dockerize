@@ -1,6 +1,6 @@
 {
   "name": "@lime.it/ng-dockerize",
-  "version": "0.1.1",
+  "version": "0.1.3",
   "description": "Utility library with schematics to easily set up an angular app for a container deployment with a dynamic environment variables configuration.",
   "keywords": [
     "ci/cd",
@@ -22,10 +22,10 @@
   "schematics": "./schematics/collection.json",
   "peerDependencies": {
     "@angular/common": "^9.1.1",
-    "@angular/core": "^9.1.1",
-    "tslib": "^1.10.0"
+    "@angular/core": "^9.1.1"
   },
   "dependencies": {
-    "schematics-utilities": "^2.0.1"
+    "schematics-utilities": "^2.0.1",
+    "tslib": "^1.10.0"
   }
 }
