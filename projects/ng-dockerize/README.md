@@ -1,4 +1,9 @@
-# ng-dockerize
+@lime.it/ng-dockerize
+=============
+[![Version](https://img.shields.io/npm/v/@lime.it/ng-dockerize.svg)](https://npmjs.org/package/@lime.it/ng-dockerize)
+[![CircleCI](https://circleci.com/gh/lime-it/ng-dockerize/tree/master.svg?style=shield)](https://circleci.com/gh/lime-it/ng-dockerize/tree/master)
+[![Downloads/week](https://img.shields.io/npm/dw/@lime.it/ng-dockerize.svg)](https://npmjs.org/package/@lime.it/ng-dockerize)
+[![License](https://img.shields.io/npm/l/@lime.it/ng-dockerize.svg)](https://github.com/lime-it/ng-dockerize/blob/master/package.json)
 
 Utility library with schematics to easy set up an angular app for a container deployment with a dynamic environment variables configuration.
 
