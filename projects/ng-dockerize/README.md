@@ -10,6 +10,24 @@ Utility library with schematics to easy set up an angular app for a container de
 The library automatically set up the configuration files to create an nginx based docker image for your angular app with dynamic runtime, multi environments, configuration.
 It also provides a service to access the merged compile-time and runtime-configuration and an APP_INITIALIZER to ensure it to be loaded before application start.
 
+It is also possible to specify environment variables overrides, setting variables in the form *APP_\<path\>* where \<path\> is a *__* separeted object path
+to the value in the *evironment* object:
+
+```
+APP_path__to__value=3
+```
+corresponds to:
+```
+{
+  path: {
+    to: {
+      value: 3
+    }
+  }
+}
+
+```
+
 # How to install and use
 
 Install through npm:
@@ -26,7 +44,7 @@ Otherwise simply add with angular-cli
 
 You will find in your angular workspace two new files:
 * Dockerfile: configured to build an nginx based image with contents from the *./dist/{your_app}* folder
-* nginx.conf.template: configured to set up an alias for *assets/environment.json* based on the value of the environment value *APP_ENVIRONMENT*
+* nginx.conf: configured to set up an alias for *assets/environment.json* based on the value of the environment value *APP_ENVIRONMENT*
 
 Moreover, your app main NgModule will import the *NgDockerizeModule*.
 
