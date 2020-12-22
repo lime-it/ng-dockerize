@@ -6,7 +6,7 @@ import {
 
 import * as ts from 'typescript';
 
-import { normalize, experimental, join } from '@angular-devkit/core';
+import { normalize, join } from '@angular-devkit/core';
 
 import { addImportToModule } from "@schematics/angular/utility/ast-utils";
 import { findModule } from "@schematics/angular/utility/find-module";
@@ -27,7 +27,7 @@ export function Initialize(options: InitSchema): Rule {
     const workspaceContent = workspaceConfig.toString();
 
     // parse workspace string into JSON object
-    const workspace: experimental.workspace.WorkspaceSchema = JSON.parse(workspaceContent);
+    const workspace: any = JSON.parse(workspaceContent);
     if (!options.project) {
       options.project = workspace.defaultProject;
     }

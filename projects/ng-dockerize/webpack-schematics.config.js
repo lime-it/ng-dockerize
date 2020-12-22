@@ -41,12 +41,12 @@ module.exports = {
                     );
                     child.stdout.on('data', function (data) {
                         if(/error/i.test(data))
-                            process.stdout.write(colors.red(data));
+                            process.stdout.write(colors.red(data.toString()));
                         else
                             process.stdout.write(data);
                     });
                     child.stderr.on('data', function (data) {
-                        process.stderr.write(colors.red(data));
+                        process.stderr.write(colors.red(data.toString()));
                     });
                     child.on('exit',function(code, signal){
                         if(code!=0)
