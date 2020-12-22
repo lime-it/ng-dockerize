@@ -36,10 +36,25 @@ export class EnvironmentService {
   public async initialize():Promise<void>{
     
     if(!this._operation){
-      const op = !this.options.debug ? this.http.get<Partial<EnvironmentLike>>("assets/environment.json").toPromise() : Promise.resolve(this.options.debug);
-      this._operation = op.then(env=>{
+      const op = !this.options.debug ? 
+        Promise.all([
+          this.http.get("assets/launch-environment.ini", { responseType: 'text' }).toPromise().catch(e=>""),
+          this.http.get<Partial<EnvironmentLike>>("assets/environment.json").toPromise()]) 
+        : Promise.all([
+          Promise.resolve(""),
+          Promise.resolve(this.options.debug)]);
+
+      this._operation = op.then(([vars, env])=>{
+        const varsObj = {};
+        vars.split('\n').forEach(line => {
+          const keyValue = line.split('=');
+          const path = keyValue[0].replace(/^APP_/, '').split('__');
+          const value = keyValue[1];
+
+          this.buildObjectPath(varsObj, path, value);
+        });
     
-        this._environment$.next(this.mergeDeep({...this._environment$.getValue()}, env));
+        this._environment$.next(this.mergeDeep({...this._environment$.getValue()}, env, varsObj));
   
         this._initialized = true;
       });
@@ -77,5 +92,22 @@ export class EnvironmentService {
     }
 
     return this.mergeDeep(target, ...sources);
+  }
+
+  private buildObjectPath(obj:any, path: string[], value: any) {
+    for(let i = 0; i < path.length - 1; i++){
+      if(obj[path[i]]===undefined){
+        obj[path[i]] = {};
+      }
+      else if(!this.isObject(obj[path[i]])){
+        throw new Error("Invalid object nesting operation on non-object value.");
+      }
+
+      obj = obj[path[i]]
+    }
+
+    if(path.length > 0){
+      obj[path[path.length - 1]] = value;
+    }
   }
 }

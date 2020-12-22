@@ -14,7 +14,7 @@ import { environment } from 'src/environments/environment';
     NgDockerizeModule
   ],
   providers: [
-    {provide:NG_DOCKERIZE_OPTIONS, useValue:{environment:environment, debug:{production:false, environment:"test"}}}
+    { provide: NG_DOCKERIZE_OPTIONS, useValue: { environment, debug: environment.production ? undefined : environment } }
   ],
   bootstrap: [AppComponent]
 })

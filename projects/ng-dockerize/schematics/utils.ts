@@ -1,4 +1,4 @@
-import { Host } from 'schematics-utilities';
+import { Host } from '@schematics/angular/utility/change';
 import { Tree } from '@angular-devkit/schematics';
 
 export class PathChangesBuffer implements Host {

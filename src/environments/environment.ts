@@ -4,7 +4,10 @@
 
 export const environment = {
   production: false,
-  environment:"debug"
+  environment:"debug",
+  test:{
+    value: "ciao"
+  }
 };
 
 /*
